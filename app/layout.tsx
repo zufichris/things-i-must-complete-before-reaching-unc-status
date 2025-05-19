@@ -1,29 +1,22 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-
-const inter = Inter({ subsets: ["latin"] })
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Roadmap Tracker",
-  description: "Track your project roadmaps and progress",
-    generator: 'v0.dev'
-}
+  title: "Cool Projects I must complete before reaching unc status",
+  description: "Cool Projects I must complete before reaching unc status",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider defaultTheme="system" storageKey="roadmap-theme">
-          {children}
-        </ThemeProvider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }
