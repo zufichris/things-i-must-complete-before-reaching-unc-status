@@ -2806,5 +2806,221 @@ export const roadmapData = [
         ]
       }
     ]
+  },
+    {
+    "id": "debughero",
+    "title": "DebugHero",
+    "category": "Debugging Skills",
+    "description": "Master professional debugging, from basics to live production issue triage and root cause analysis.",
+    "duration": "5 weeks",
+    "prerequisites": [],
+    "phases": [
+      {
+        "title": "Foundations",
+        "description": "Sharpen core debugging techniques.",
+        "tasks": [
+          "Study language-specific debuggers (gdb, lldb, pdb, Chrome DevTools, etc.)",
+          "Practice step-through debugging on open source projects",
+          "Learn how to interpret core dumps and stack traces",
+          "Set up logging best practices",
+          "Document debugging workflow for your stack"
+        ]
+      },
+      {
+        "title": "Advanced Techniques",
+        "description": "Go beyond the basics.",
+        "tasks": [
+          "Simulate and debug concurrency bugs (race conditions, deadlocks)",
+          "Practice with real-world memory leaks and perf issues",
+          "Analyze and debug distributed system failures",
+          "Learn post-mortem debugging (prod crash dump analysis)",
+          "Write up a root cause analysis (RCA) for a complex bug"
+        ]
+      },
+      {
+        "title": "Production Debugging",
+        "description": "Prepare for on-call and incident response.",
+        "tasks": [
+          "Set up remote debugging tools (e.g., delve, VSCode Remote)",
+          "Practice debugging in Docker/Kubernetes environments",
+          "Configure real-time log aggregation (ELK, Loki, Datadog)",
+          "Write runbooks for common prod issues",
+          "Lead a simulated incident response drill"
+        ]
+      },
+      {
+        "title": "Knowledge Sharing",
+        "description": "Multiply impact through documentation and teaching.",
+        "tasks": [
+          "Host a debugging workshop for your team",
+          "Write a detailed troubleshooting guide",
+          "Document anti-patterns and gotchas in your tech stack",
+          "Build a shared internal wiki of lessons learned",
+          "Reflect on growth as a debugger"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "refactorwizard",
+    "title": "RefactorWizard",
+    "category": "Refactoring",
+    "description": "Sharpen your ability to refactor legacy codebases, apply design patterns, and increase code maintainability.",
+    "duration": "4 weeks",
+    "prerequisites": [],
+    "phases": [
+      {
+        "title": "Principles & Patterns",
+        "description": "Master the why and how of refactoring.",
+        "tasks": [
+          "Read 'Refactoring' by Martin Fowler",
+          "Study key design patterns (GoF book, Head First Design Patterns)",
+          "Identify code smells and technical debt",
+          "Write before/after code examples",
+          "Document refactoring heuristics"
+        ]
+      },
+      {
+        "title": "Safe Refactoring",
+        "description": "Refactor with safety and confidence.",
+        "tasks": [
+          "Add automated tests before any refactor",
+          "Refactor with IDE tools (rename, extract method, etc.)",
+          "Introduce dependency injection and modularization",
+          "Document migration plans for breaking changes",
+          "Run code review for a major refactor PR"
+        ]
+      },
+      {
+        "title": "Scaling Up",
+        "description": "Tackle large-scale refactoring projects.",
+        "tasks": [
+          "Plan and execute multi-module refactors",
+          "Coordinate with multiple teams for cross-cutting changes",
+          "Automate large-scale changes with scripts",
+          "Monitor performance and regression after refactor",
+          "Write a case study on the refactor process"
+        ]
+      },
+      {
+        "title": "Mentoring & Advocacy",
+        "description": "Spread refactoring culture.",
+        "tasks": [
+          "Lead a refactoring session with juniors",
+          "Create internal documentation on patterns/anti-patterns",
+          "Teach a brown-bag session on refactoring",
+          "Advocate for continuous refactoring in sprint reviews",
+          "Reflect on measurable improvements from your changes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "apitactician",
+    "title": "ApiTactician",
+    "category": "API Design",
+    "description": "Specialize in REST, GraphQL, and RPC API design for maintainability, performance, and developer experience.",
+    "duration": "5 weeks",
+    "prerequisites": [],
+    "phases": [
+      {
+        "title": "Principles & Patterns",
+        "description": "Master modern API design.",
+        "tasks": [
+          "Study REST, GraphQL, and gRPC best practices",
+          "Design a sample API with OpenAPI/Swagger",
+          "Write comprehensive API documentation",
+          "Implement versioning and deprecation strategies",
+          "Run usability tests with fake clients"
+        ]
+      },
+      {
+        "title": "Security & Performance",
+        "description": "Lock down and speed up APIs.",
+        "tasks": [
+          "Add authentication and authorization (JWT/OAuth2)",
+          "Enable input validation and error handling",
+          "Benchmark API latency and throughput",
+          "Add caching and rate-limiting",
+          "Integrate API metrics with Prometheus/Grafana"
+        ]
+      },
+      {
+        "title": "DX & SDKs",
+        "description": "Enhance developer experience.",
+        "tasks": [
+          "Generate client SDKs from API spec",
+          "Write quickstart and troubleshooting guides",
+          "Open source your API and gather feedback",
+          "Create a Postman collection or GraphQL playground",
+          "Document lessons learned and best practices"
+        ]
+      },
+      {
+        "title": "Review & Governance",
+        "description": "Instill API quality culture.",
+        "tasks": [
+          "Set up API review process in your team",
+          "Audit legacy APIs for improvement",
+          "Write internal API standards doc",
+          "Lead API design review for a critical system",
+          "Reflect on impact of API design on business"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "testninja",
+    "title": "TestNinja",
+    "category": "Testing",
+    "description": "Level up automated testing: unit, integration, property, contract, and end-to-end in modern stacks.",
+    "duration": "5 weeks",
+    "prerequisites": [],
+    "phases": [
+      {
+        "title": "Unit & Integration",
+        "description": "Get strong at core automated tests.",
+        "tasks": [
+          "Implement TDD in at least two projects",
+          "Write unit and integration tests for new features",
+          "Measure and improve test coverage",
+          "Refactor code for better testability",
+          "Document test strategies"
+        ]
+      },
+      {
+        "title": "Beyond Basics",
+        "description": "Learn advanced and edge-case testing.",
+        "tasks": [
+          "Implement property-based tests (Hypothesis, jqwik, etc.)",
+          "Practice contract testing for APIs (Pact)",
+          "Simulate flaky and failing network conditions",
+          "Run mutation testing to assess test quality",
+          "Create test doubles (mocks, fakes, stubs, spies)"
+        ]
+      },
+      {
+        "title": "E2E & Performance",
+        "description": "Test full systems, not just units.",
+        "tasks": [
+          "Write E2E tests (Cypress, Selenium, Playwright)",
+          "Automate performance and load tests",
+          "Integrate tests with CI/CD pipelines",
+          "Document E2E scenarios and findings",
+          "Share results and best practices in team meetings"
+        ]
+      },
+      {
+        "title": "Testing Culture",
+        "description": "Advocate for testing-first thinking.",
+        "tasks": [
+          "Lead a bug bash or test sprint",
+          "Mentor a teammate in test writing",
+          "Create a shared test case repository",
+          "Push for coverage targets and quality gates",
+          "Reflect on product quality improvements"
+        ]
+      }
+    ]
   }
 ]
