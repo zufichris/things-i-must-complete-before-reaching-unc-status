@@ -77,10 +77,10 @@ export default function ProjectSidebar({
                             {getStatusIcon(progress)}
                             <span className="truncate font-medium">{project.title}</span>
                           </div>
-                          <span className="text-xs bg-secondary px-2 py-0.5 rounded-full">{Math.round(progress)}%</span>
+                          <span className="text-xs text-primary bg-secondary px-2 py-0.5 rounded-full">{Math.round(progress)}%</span>
                         </div>
                         <div className="mt-2">
-                          <div className="progress-bar-container">
+                          <div className="progress-bar-containe`r">
                             <div className="progress-bar" style={{ width: `${progress}%` }} />
                           </div>
                         </div>
