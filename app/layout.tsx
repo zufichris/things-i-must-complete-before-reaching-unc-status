@@ -4,7 +4,6 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Toaster } from "@/components/ui/toaster"
 import { MainNav } from "@/components/main-nav"
-import { ModeToggle } from "@/components/mode-toggle"
 import { cn } from "@/lib/utils"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -29,9 +28,6 @@ export default function RootLayout({
           <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container flex h-16 items-center justify-between py-4">
               <MainNav />
-              <div className="flex items-center gap-2">
-                <ModeToggle />
-              </div>
             </div>
           </header>
           <main className="flex-1">{children}</main>

@@ -11,7 +11,7 @@ export async function GET() {
     await supabase.from("phases").delete().neq("id", 0)
     await supabase.from("roadmap_prerequisites").delete().neq("id", 0)
     await supabase.from("roadmaps").delete().neq("id", "")
-    await supabase.from("resources").delete().neq("id", "")
+    await supabase.from("resources").delete().neq("id", 0)
 
     // Sample data from the provided JSON
     const data = {
@@ -178,8 +178,8 @@ export async function GET() {
           "duration": "10 weeks"
         },
         {
-          "id": "keyvault",
-          "title": "KeyVault",
+          "id": "keyvaultv2",
+          "title": "KeyVaultV2",
           "category": "Databases",
           "description": "A high-performance key-value store with B+ trees, mastering database internals and locking in your 10x DSA skills.",
           "duration": "8 weeks"
@@ -451,8 +451,8 @@ export async function GET() {
           "prerequisite_id": "netforge"
         },
         {
-          "roadmap_id": "keyvault",
-          "prerequisite_id": "nanokernel"
+          "roadmap_id": "keyvaultv2",
+          "prerequisite_id": "keyvault"
         },
         {
           "roadmap_id": "pathforge",
@@ -901,7 +901,7 @@ export async function GET() {
         },
         {
           "id": 58,
-          "roadmap_id": "keyvault",
+          "roadmap_id": "keyvaultv2",
           "title": "Core Storage & Indexing",
           "description": "Build the key-value store with advanced indexing.",
           "phase_order": 2
@@ -10052,8 +10052,8 @@ export async function GET() {
     const { error: tasksError } = await supabase.from("tasks").insert(data.tasks)
     if (tasksError) throw tasksError
 
-    const {error:resourceError}=await supabase.from("resources").insert(data.resources)
-    if(resourceError) throw resourceError
+    const { error: resourceError } = await supabase.from("resources").insert(data.resources)
+    if (resourceError) throw resourceError
     return NextResponse.json({
       success: true,
       message: "Database seeded successfully with the provided data",

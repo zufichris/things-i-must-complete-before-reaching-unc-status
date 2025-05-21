@@ -41,9 +41,10 @@ export default async function Dashboard() {
 
     const metrics = calculateTimeMetrics({
       startDate,
-      targetDate,
       estimatedHours,
       completionPercentage: roadmap.completion_percentage || 0,
+      targetCompletionDate:targetDate,
+      completedHours:estimatedHours
     })
 
     return {

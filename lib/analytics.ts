@@ -16,6 +16,7 @@ export type ProjectAnalytics = {
   riskProjects: Roadmap[]
   projectsByCategory: Record<string, number>
   timeDistribution: Record<string, number>
+  overdueProjects: number
 }
 
 export function calculateProjectAnalytics(roadmaps: Roadmap[]): ProjectAnalytics {
@@ -36,6 +37,7 @@ export function calculateProjectAnalytics(roadmaps: Roadmap[]): ProjectAnalytics
       riskProjects: [],
       projectsByCategory: {},
       timeDistribution: {},
+      overdueProjects: 0,
     }
   }
 
@@ -43,14 +45,12 @@ export function calculateProjectAnalytics(roadmaps: Roadmap[]): ProjectAnalytics
   const completedProjects = roadmaps.filter((r) => (r.completion_percentage || 0) === 100).length
   const notStartedProjects = roadmaps.filter((r) => (r.completion_percentage || 0) === 0).length
   const inProgressProjects = roadmaps.length - completedProjects - notStartedProjects
+  const overdueProjects = roadmaps.filter((r) => r.is_overdue).length
 
-  // Calculate time metrics
+  // Calculate time metrics using real data
   const totalEstimatedHours = roadmaps.reduce((sum, r) => sum + (r.estimated_hours || 0), 0)
-  const totalCompletedHours = roadmaps.reduce(
-    (sum, r) => sum + ((r.estimated_hours || 0) * (r.completion_percentage || 0)) / 100,
-    0,
-  )
-  const totalRemainingHours = totalEstimatedHours - totalCompletedHours
+  const totalCompletedHours = roadmaps.reduce((sum, r) => sum + (r.completed_hours || 0), 0)
+  const totalRemainingHours = roadmaps.reduce((sum, r) => sum + (r.remaining_hours || 0), 0)
 
   // Calculate average completion rate
   const averageCompletionRate = roadmaps.reduce((sum, r) => sum + (r.completion_percentage || 0), 0) / roadmaps.length
@@ -96,8 +96,10 @@ export function calculateProjectAnalytics(roadmaps: Roadmap[]): ProjectAnalytics
     }
   }
 
-  // Find projects at risk
-  const riskProjects = roadmaps.filter((r) => (r.completion_percentage || 0) < 50 && (r.days_remaining || 30) < 14)
+  // Find projects at risk (less than 50% complete and less than 14 days remaining)
+  const riskProjects = roadmaps.filter(
+    (r) => (r.completion_percentage || 0) < 50 && (r.days_remaining || 30) < 14 && !r.is_overdue,
+  )
 
   // Count projects by category
   const projectsByCategory: Record<string, number> = {}
@@ -106,7 +108,7 @@ export function calculateProjectAnalytics(roadmaps: Roadmap[]): ProjectAnalytics
     projectsByCategory[category] = (projectsByCategory[category] || 0) + 1
   })
 
-  // Calculate time distribution by category
+  // Calculate time distribution by category using real hours
   const timeDistribution: Record<string, number> = {}
   roadmaps.forEach((r) => {
     const category = r.category || "Uncategorized"
@@ -129,5 +131,6 @@ export function calculateProjectAnalytics(roadmaps: Roadmap[]): ProjectAnalytics
     riskProjects,
     projectsByCategory,
     timeDistribution,
+    overdueProjects,
   }
 }
