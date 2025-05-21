@@ -120,5 +120,11 @@ export const resources: Resource[] = [
     category: "video",
     link: "",
     description: "A video series on interfacing between Odin and C, covering practical examples and use cases.",
-  }
+  },
+{
+title:"Practical foundation of programming languages",
+category:"book",
+  link:"https://www.cs.cmu.edu/~rwh/pfpl.html",
+description:"comprehensive framework for formulating and analyzing a broad range of ideas in programming languages"
+}
 ];
